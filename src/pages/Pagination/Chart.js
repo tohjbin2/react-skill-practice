@@ -54,39 +54,38 @@ function Chart() {
   return (
     <S.Container>
       <S.Wrapper>
-        <S.ContentsContainer>
-          <S.PaginationContainer>
-            <S.PostsTitle>
-              {TITLE_CATEGORY.map((list, idx) => {
-                if (list.id === '1') {
-                  return <S.SecurityBtn key={idx}>{list.name}</S.SecurityBtn>;
-                }
-                if (list.id === '2') {
-                  return (
-                    <S.SecurityBtn
-                      onClick={() => {
-                        setOpenSecurityModal(true);
-                      }}
-                    >
-                      {list.name}
-                    </S.SecurityBtn>
-                  );
-                }
-                if (list.id === '3') {
-                  return (
-                    <S.CleaningBtn onClick={() => setOpenCleanModal(true)}>
-                      {list.name}
-                    </S.CleaningBtn>
-                  );
-                }
-              })}
-              {/*
+        <S.PostsTitle>
+          {TITLE_CATEGORY.map((list, idx) => {
+            if (list.id === '1') {
+              return <S.SecurityBtn key={idx}>{list.name}</S.SecurityBtn>;
+            }
+            if (list.id === '2') {
+              return (
+                <S.SecurityBtn
+                  onClick={() => {
+                    setOpenSecurityModal(true);
+                  }}
+                >
+                  {list.name}
+                </S.SecurityBtn>
+              );
+            }
+            if (list.id === '3') {
+              return (
+                <S.CleaningBtn onClick={() => setOpenCleanModal(true)}>
+                  {list.name}
+                </S.CleaningBtn>
+              );
+            }
+          })}
+          {/*
               <S.SummaryBtn>요약</S.SummaryBtn>
               <S.SecurityBtn>경비</S.SecurityBtn>
               <S.CleaningBtn>청소</S.CleaningBtn>
               */}
-            </S.PostsTitle>
-
+        </S.PostsTitle>
+        <S.ContentsContainer>
+          <S.PaginationContainer>
             <S.PostsContainer>
               {openSecurityModal && (
                 <Posts posts={currentPosts} loading={loading} />
