@@ -42,42 +42,10 @@ function Chart() {
   const paginate = pageNumber => setCurrentPage(pageNumber);
   // IMPORTANT: 페이지네이션 관련-----end
 
-  const TITLE_CATEGORY = [
-    { id: '1', name: '요약' },
-    { id: '2', name: '경비' },
-    { id: '3', name: '청소' },
-  ];
-
-  const [openSecurityModal, setOpenSecurityModal] = useState(false);
-  const [openCleanModal, setOpenCleanModal] = useState(false);
-
   return (
     <S.Container>
       <S.Wrapper>
         <S.PostsTitle>
-          {TITLE_CATEGORY.map((list, idx) => {
-            if (list.id === '1') {
-              return <S.SecurityBtn key={idx}>{list.name}</S.SecurityBtn>;
-            }
-            if (list.id === '2') {
-              return (
-                <S.SecurityBtn
-                  onClick={() => {
-                    setOpenSecurityModal(true);
-                  }}
-                >
-                  {list.name}
-                </S.SecurityBtn>
-              );
-            }
-            if (list.id === '3') {
-              return (
-                <S.CleaningBtn onClick={() => setOpenCleanModal(true)}>
-                  {list.name}
-                </S.CleaningBtn>
-              );
-            }
-          })}
           {/*
               <S.SummaryBtn>요약</S.SummaryBtn>
               <S.SecurityBtn>경비</S.SecurityBtn>
@@ -87,17 +55,14 @@ function Chart() {
         <S.ContentsContainer>
           <S.PaginationContainer>
             <S.PostsContainer>
-              {openSecurityModal && (
-                <Posts posts={currentPosts} loading={loading} />
-              )}
-              {openSecurityModal && (
-                <PaginationBtn
-                  postsPerPage={postsPerPage}
-                  totalPosts={posts.length}
-                  paginate={paginate}
-                />
-              )}
-              {openCleanModal}
+              <Posts posts={currentPosts} loading={loading} />
+
+              <PaginationBtn
+                postsPerPage={postsPerPage}
+                totalPosts={posts.length}
+                paginate={paginate}
+              />
+
               {/* IMPORTANT 원본-----start */}
               {/* <Posts posts={currentPosts} loading={loading} /> */}
               {/* <PaginationBtn
