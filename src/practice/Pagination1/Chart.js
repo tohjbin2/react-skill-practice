@@ -45,13 +45,6 @@ function Chart() {
   return (
     <S.Container>
       <S.Wrapper>
-        <S.PostsTitle>
-          {/*
-              <S.SummaryBtn>요약</S.SummaryBtn>
-              <S.SecurityBtn>경비</S.SecurityBtn>
-              <S.CleaningBtn>청소</S.CleaningBtn>
-              */}
-        </S.PostsTitle>
         <S.ContentsContainer>
           <S.PaginationContainer>
             <S.PostsContainer>
