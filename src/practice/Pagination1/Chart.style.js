@@ -14,15 +14,15 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1100px;
+
   background-color: #f8f9fa;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 30px;
-  width: 1200px;
+  width: 1000px;
+  padding: 50px 0;
   /* border: solid 2px blue; */
 
   @media (max-width: 1200px) {
@@ -36,6 +36,7 @@ export const ContentsContainer = styled.div`
   /* 좌우 위아래 블러 (크기) 색상 *
   /* border: solid 1px black; */
   border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 `;
