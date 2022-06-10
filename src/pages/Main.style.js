@@ -13,4 +13,8 @@ export const Btn = styled.button`
   height: 80px;
   font-size: 24px;
   margin: 0 40px;
+  cursor: pointer;
+
+  :hover {
+  }
 `;
