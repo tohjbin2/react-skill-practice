@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import * as S from './Chart2.style';
 
-import axios from 'axios';
-import Posts from './PaginationPosts2/PaginationPosts2';
+import PaginationPosts from './PaginationPosts2/PaginationPosts2';
 import PaginationBtn from './PaginationBtn2/PaginationBtn2';
 
-const TITLE_CATEGORY = [
-  { id: '1', name: '실적' },
-  { id: '2', name: '경비' },
-  { id: '3', name: '청소' },
+import axios from 'axios';
+// import CountUp from 'react-countup'; /* MEMO: 숫자 카운트 */
+
+const TITLE_CHART_CATEGORY = [
+  { id: '1', name: '경비' },
+  { id: '2', name: '미화' },
 ];
 
 function Chart2() {
@@ -35,7 +36,6 @@ function Chart2() {
       }
       // res.status === 200
       setLoading(false);
-      console.log(res.data.Data, '경비 데이터');
     };
     fetchPosts();
   }, []);
@@ -48,10 +48,10 @@ function Chart2() {
       const res2 = await axios.get('/data/contract-list-clean-response.json');
       if (res2.data.ErrorCode === 0) {
         setPosts2(res2.data.Data); // IMPORTANT
+        setSecurityModal(true);
       }
       // res.status === 200
       setLoading(false);
-      console.log(res2.data.Data, '청소 데이터');
     };
     fetchPosts();
   }, []);
@@ -70,91 +70,94 @@ function Chart2() {
   const paginate = pageNumber => setCurrentPage(pageNumber);
   // IMPORTANT: 페이지네이션 관련-----end
 
-  const [summaryModal, setSummaryModal] = useState(false);
   const [securityModal, setSecurityModal] = useState(false);
   const [cleanModal, setCleanModal] = useState(false);
-  const onSummaryModal = () => {
-    // e.preventDefault();
-    setCleanModal(false);
-    setSecurityModal(false);
-    setSummaryModal(true);
-  };
   const onSecurityModal = () => {
     // e.preventDefault();
-    setSummaryModal(false);
     setCleanModal(false);
     setSecurityModal(true);
   };
   const onCleanModal = () => {
     // e.preventDefault();
-    setSummaryModal(false);
     setSecurityModal(false);
     setCleanModal(true);
   };
+
   return (
     <S.Container>
+      <S.TitleContainer>
+        <S.TitleWrap>
+          <S.MainTitle>
+            꿈을 향해???... <br />
+            ??? 전진하는 중입니다.
+          </S.MainTitle>
+        </S.TitleWrap>
+      </S.TitleContainer>
+
       <S.Wrapper>
-        <S.PostsTitle>
-          {TITLE_CATEGORY.map((list, idx) => {
-            if (list.id === '1') {
-              return (
-                <S.SecurityBtn
-                  key={idx}
-                  onClick={() => {
-                    onSummaryModal();
-                  }}
-                >
-                  {list.name}
-                </S.SecurityBtn>
-              );
-            }
-            if (list.id === '2') {
-              return (
-                <S.SecurityBtn
-                  onClick={() => {
-                    onSecurityModal();
-                  }}
-                >
-                  {list.name}
-                </S.SecurityBtn>
-              );
-            }
-            if (list.id === '3') {
-              return (
-                <S.CleaningBtn onClick={() => onCleanModal()}>
-                  {list.name}
-                </S.CleaningBtn>
-              );
-            }
-          })}
-        </S.PostsTitle>
+        <S.ChartContainer>
+          <S.SubTitle>
+            <div>
+              <p>주요 실적</p>
+            </div>
+          </S.SubTitle>
+          {/* 페이지네이션 ---start */}
+          <S.PostsTitle>
+            {TITLE_CHART_CATEGORY.map((list, idx) => {
+              if (list.id === '1') {
+                return (
+                  <S.SecurityBtn
+                    key={idx}
+                    onClick={() => {
+                      onSecurityModal();
+                    }}
+                  >
+                    <div>
+                      <p>{list.name}</p>
+                    </div>
+                  </S.SecurityBtn>
+                );
+              }
+              if (list.id === '2') {
+                return (
+                  <S.CleaningBtn onClick={() => onCleanModal()}>
+                    <div>
+                      <p>{list.name}</p>
+                    </div>
+                  </S.CleaningBtn>
+                );
+              }
+            })}
+          </S.PostsTitle>
 
-        <S.ContentsContainer>
           <S.PaginationContainer>
-            <S.PostsContainer>
-              {/* <Summary /> */}
-              {securityModal && (
-                <Posts posts={currentPosts} loading={loading} />
-              )}
-              {securityModal && (
-                <PaginationBtn
-                  postsPerPage={postsPerPage}
-                  totalPosts={posts.length}
-                  paginate={paginate}
-                />
-              )}
-
-              {cleanModal && <Posts posts={currentPosts2} loading={loading} />}
-              {cleanModal && (
-                <PaginationBtn
-                  postsPerPage={postsPerPage}
-                  totalPosts={posts2.length}
-                  paginate={paginate}
-                />
-              )}
-            </S.PostsContainer>
+            <S.PaginationWrap>
+              <S.PostsContainer>
+                {securityModal && (
+                  <PaginationPosts posts={currentPosts} loading={loading} />
+                )}
+                {securityModal && (
+                  <PaginationBtn
+                    postsPerPage={postsPerPage}
+                    totalPosts={posts.length}
+                    paginate={paginate}
+                  />
+                )}
+                {cleanModal && (
+                  <PaginationPosts posts={currentPosts2} loading={loading} />
+                )}
+                {cleanModal && (
+                  <PaginationBtn
+                    postsPerPage={postsPerPage}
+                    totalPosts={posts2.length}
+                    paginate={paginate}
+                  />
+                )}
+              </S.PostsContainer>
+            </S.PaginationWrap>
           </S.PaginationContainer>
-        </S.ContentsContainer>
+          {/* 페이지네이션 ---end */}
+        </S.ChartContainer>
       </S.Wrapper>
     </S.Container>
   );
