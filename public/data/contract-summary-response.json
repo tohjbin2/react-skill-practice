@@ -1,0 +1,77 @@
+{
+  "Data": [
+    {
+      "AreaGroup": [
+        {
+          "GroupCode": 0,
+          "GroupCodeName": "서울",
+          "TotalContractCnt": 4,
+          "TotalEmployeeCnt": 65,
+          "TotalManagedArea": 472135.5,
+          "TotalNoOfHouse": 3804
+        },
+        {
+          "GroupCode": 1,
+          "GroupCodeName": "인천",
+          "TotalContractCnt": 1,
+          "TotalEmployeeCnt": 8,
+          "TotalManagedArea": 142082,
+          "TotalNoOfHouse": 1309
+        },
+        {
+          "GroupCode": 3,
+          "GroupCodeName": "경기도",
+          "TotalContractCnt": 154,
+          "TotalEmployeeCnt": 875,
+          "TotalManagedArea": 12120585,
+          "TotalNoOfHouse": 98004
+        },
+        {
+          "GroupCode": 5,
+          "GroupCodeName": "충청도/대전/세종",
+          "TotalContractCnt": 66,
+          "TotalEmployeeCnt": 480,
+          "TotalManagedArea": 7412570,
+          "TotalNoOfHouse": 59501
+        }
+      ],
+      "JobGroup": [
+        {
+          "GroupCode": 0,
+          "GroupCodeName": "미분류",
+          "TotalContractCnt": 2,
+          "TotalEmployeeCnt": 0,
+          "TotalManagedArea": 306923,
+          "TotalNoOfHouse": 1836
+        },
+        {
+          "GroupCode": 6,
+          "GroupCodeName": "경비(파견)",
+          "TotalContractCnt": 81,
+          "TotalEmployeeCnt": 446,
+          "TotalManagedArea": 7057393,
+          "TotalNoOfHouse": 54666
+        },
+        {
+          "GroupCode": 7,
+          "GroupCodeName": "미화(파견)",
+          "TotalContractCnt": 142,
+          "TotalEmployeeCnt": 982,
+          "TotalManagedArea": 12783055,
+          "TotalNoOfHouse": 106116
+        }
+      ],
+      "TotalContractCnt": 225,
+      "TotalEmployeeCnt": 1428,
+      "TotalManagedArea": 20147376,
+      "TotalNoOfHouse": 162618
+    }
+  ],
+  "DataCount": 1,
+  "EndCount": 1,
+  "ErrorCode": 0,
+  "ErrorMsg": "No Error",
+  "Request": {},
+  "StartCount": 0,
+  "TotalCount": 1
+}
