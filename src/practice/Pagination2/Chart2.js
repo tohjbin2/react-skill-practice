@@ -8,8 +8,8 @@ import axios from 'axios';
 // import CountUp from 'react-countup'; /* MEMO: 숫자 카운트 */
 
 const TITLE_CHART_CATEGORY = [
-  { id: '1', name: '경비' },
-  { id: '2', name: '미화' },
+  { id: '1', name: '1번' },
+  { id: '2', name: '2번' },
 ];
 
 function Chart2() {
@@ -88,8 +88,8 @@ function Chart2() {
       <S.TitleContainer>
         <S.TitleWrap>
           <S.MainTitle>
-            꿈을 향해???... <br />
-            ??? 전진하는 중입니다.
+            개발 <br />
+            잘하고싶다!
           </S.MainTitle>
         </S.TitleWrap>
       </S.TitleContainer>
@@ -98,7 +98,7 @@ function Chart2() {
         <S.ChartContainer>
           <S.SubTitle>
             <div>
-              <p>주요 실적</p>
+              <p>페이지네이션2</p>
             </div>
           </S.SubTitle>
           {/* 페이지네이션 ---start */}
