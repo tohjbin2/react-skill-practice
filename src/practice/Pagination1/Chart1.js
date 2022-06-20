@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import * as S from './Chart.style';
+import * as S from './Chart1.style';
 
 import axios from 'axios';
-import Posts from './PaginationPosts/PaginationPosts';
-import PaginationBtn from './PaginationBtn/PaginationBtn';
+import Posts from './PaginationPosts1/PaginationPosts1';
+import PaginationBtn from './PaginationBtn1/PaginationBtn1';
 
-function Chart() {
+function Chart1() {
   // IMPORTANT: 페이지네이션 관련-----start
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -50,12 +50,6 @@ function Chart() {
             <S.PostsContainer>
               <Posts posts={currentPosts} loading={loading} />
 
-              <PaginationBtn
-                postsPerPage={postsPerPage}
-                totalPosts={posts.length}
-                paginate={paginate}
-              />
-
               {/* IMPORTANT 원본-----start */}
               {/* <Posts posts={currentPosts} loading={loading} /> */}
               {/* <PaginationBtn
@@ -65,6 +59,11 @@ function Chart() {
               /> */}
               {/* IMPORTANT 원본-----end */}
             </S.PostsContainer>
+            <PaginationBtn
+              postsPerPage={postsPerPage}
+              totalPosts={posts.length}
+              paginate={paginate}
+            />
           </S.PaginationContainer>
         </S.ContentsContainer>
       </S.Wrapper>
@@ -72,4 +71,4 @@ function Chart() {
   );
 }
 
-export default Chart;
+export default Chart1;
